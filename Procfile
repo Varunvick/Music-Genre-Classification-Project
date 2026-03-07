@@ -1,1 +1,1 @@
-web: gunicorn webapp.app:py
+web: gunicorn webapp.app:app --workers 1 --threads 2

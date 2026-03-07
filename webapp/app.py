@@ -29,10 +29,9 @@ def predict():
     file.save(file_path)
 
     # load audio
-    audio, sample_rate = librosa.load(file_path)
-
+    audio, sample_rate = librosa.load(file_path, duration=5)
     # extract MFCC features
-    mfcc = librosa.feature.mfcc(y=audio, sr=sample_rate, n_mfcc=13)
+    mfcc = librosa.feature.mfcc(y=audio, sr=sample_rate, n_mfcc=10)
     mfcc_scaled = np.mean(mfcc.T, axis=0)
 
     # reshape for model
