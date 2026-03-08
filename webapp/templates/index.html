@@ -16,9 +16,11 @@
 
 <form action="/predict" method="post" enctype="multipart/form-data">
 
-<input type="file" name="file" accept=".wav" required>
+<label for="file-upload" class="custom-file-upload">Choose File</label>
 
-<br>
+<input id="file-upload" type="file" name="file" accept=".wav" required>
+
+<p id="file-name">No file chosen</p>
 
 <button type="submit">Predict Genre</button>
 
@@ -31,6 +33,14 @@ Predicted Genre: {{ genre }}
 {% endif %}
 
 </div>
+<script>
+const fileInput = document.getElementById("file-upload");
+const fileName = document.getElementById("file-name");
+
+fileInput.addEventListener("change", function(){
+    fileName.textContent = fileInput.files[0].name;
+});
+</script>
 
 </body>
 </html>
