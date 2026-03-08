@@ -1,28 +1,36 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
-<title>Music Genre Classification</title>
+    <title>Music Genre Classification</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
 </head>
 
 <body>
 
-<h1>Music Genre Classification</h1>
+<div class="container">
+
+<h1>🎵 Music Genre Classification</h1>
 
 <form action="/predict" method="post" enctype="multipart/form-data">
 
-<input type="file" name="file">
+<input type="file" name="file" accept=".wav" required>
 
-<br><br>
+<br>
 
 <button type="submit">Predict Genre</button>
 
 </form>
 
 {% if genre %}
-
-<h2>Predicted Genre: {{ genre }}</h2>
-
+<div class="result">
+Predicted Genre: {{ genre }}
+</div>
 {% endif %}
+
+</div>
 
 </body>
 </html>
