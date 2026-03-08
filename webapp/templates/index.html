@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<!DOCTYPE html>
+<html>
 <head>
-<meta charset="UTF-8">
-<title>Music Genre Classification</title>
+    <title>Music Genre Classification</title>
 
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
 </head>
 
@@ -15,16 +14,9 @@
 
 <h1>🎵 Music Genre Classification</h1>
 
-<p class="description">
-Upload a music file and our AI model will analyze the audio features
-and predict the genre using machine learning.
-</p>
-
 <form action="/predict" method="post" enctype="multipart/form-data">
 
-<label for="file-upload" class="custom-file-upload">
-Choose File
-</label>
+<label for="file-upload" class="custom-file-upload">Choose File</label>
 
 <input id="file-upload" type="file" name="file" accept=".wav" required>
 
@@ -32,41 +24,22 @@ Choose File
 
 <button type="submit">Predict Genre</button>
 
-<p id="loading" style="display:none;">Analyzing music... 🎧</p>
-
 </form>
 
 {% if genre %}
 <div class="result">
 Predicted Genre: {{ genre }}
 </div>
-
-<br>
-
-<button onclick="window.location.href='/'">
-Upload Another Song
-</button>
 {% endif %}
 
-<p class="footer">
-AI Music Genre Classifier | MCA Project
-</p>
-
 </div>
-
 <script>
-
 const fileInput = document.getElementById("file-upload");
 const fileName = document.getElementById("file-name");
 
 fileInput.addEventListener("change", function(){
-fileName.textContent = fileInput.files[0].name;
+    fileName.textContent = fileInput.files[0].name;
 });
-
-document.querySelector("form").addEventListener("submit", function(){
-document.getElementById("loading").style.display = "block";
-});
-
 </script>
 
 </body>
