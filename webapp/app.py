@@ -4,12 +4,14 @@ from flask import Flask, render_template, request
 import librosa
 import numpy as np
 import joblib
+import os
 
 app = Flask(__name__)
 
 # load trained model
 
-model = joblib.load("models/music_genre_model.pkl")
+model_path = os.path.join(os.path.dirname(__file__), "..", "models", "model.pkl")
+model = joblib.load(model_path)
 
 # home page
 
@@ -23,10 +25,12 @@ def home():
 def predict():
     if "file" not in request.files:
         return "No file uploaded"
-
-    file = request.files["file"]
-    file_path = "uploaded_song.wav"
-    file.save(file_path)
+    try:
+        file = request.files["file"]
+        file_path = os.path.join(os.path.dirname(__file__), "..", "uploads", "uploaded_song.wav")
+        file.save(file_path)
+    except Exception as e:
+        return f"Error saving file: {e}"
 
     # load audio
     audio, sample_rate = librosa.load(file_path, duration=5)
