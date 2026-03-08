@@ -31,4 +31,6 @@ print("Model Accuracy:", accuracy)
 #save model
 joblib.dump(model,"models/music_genre_model.pkl")
 
+joblib.dump(model,"models/model.pkl")
+
 print("Model saved successfully!")
