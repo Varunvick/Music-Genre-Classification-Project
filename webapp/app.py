@@ -15,6 +15,9 @@ MODEL_PATH = os.path.join(BASE_DIR, "models", "model.pkl")
 # Temporary upload folder (required for Render)
 UPLOAD_FOLDER = "/tmp"
 
+# Create upload folder if it doesn't exist
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+
 print("BASE_DIR:", BASE_DIR)
 print("MODEL_PATH:", MODEL_PATH)
 
@@ -52,8 +55,10 @@ def predict():
         # Predict
         prediction = model.predict(mfcc_scaled)
 
-        return render_template("index.html", genre=prediction[0])
+        # Assuming the model returns a single genre prediction
+        predicted_genre = prediction[0]
 
+        return render_template("index.html", genre=predicted_genre)
     except Exception as e:
         return f"Error: {str(e)}"
 

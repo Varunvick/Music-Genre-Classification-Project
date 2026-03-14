@@ -1,76 +1,73 @@
 body{
-    font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(135deg,#1d2671,#c33764);
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#3a1c71,#d76d77,#ffaf7b);
     height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
-    margin:0;
 }
 
 .container{
     background:white;
     padding:40px;
     border-radius:12px;
-    width:400px;
+    width:420px;
     text-align:center;
-    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    box-shadow:0 8px 25px rgba(0,0,0,0.2);
 }
 
 h1{
-    margin-bottom:20px;
-    color:#333;
+    margin-bottom:10px;
 }
 
-input[type="file"]{
-    margin:20px 0;
+.subtitle{
+    color:gray;
+    margin-bottom:30px;
+}
+
+.upload-box{
+    border:2px dashed #999;
+    padding:25px;
+    margin-bottom:20px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.upload-box:hover{
+    border-color:#4c5cff;
 }
 
 button{
-    background:#1d2671;
+    background:#4c5cff;
     color:white;
     border:none;
     padding:12px 20px;
     border-radius:6px;
     font-size:16px;
     cursor:pointer;
-    transition:0.3s;
 }
 
 button:hover{
-    background:#c33764;
+    background:#3a45e6;
 }
 
-.result{
-    margin-top:20px;
-    font-size:20px;
-    color:#1d2671;
+.result-card{
+    margin-top:30px;
+}
+
+.genre{
+    font-size:24px;
     font-weight:bold;
+    color:#4c5cff;
 }
 
-/* hide original file input */
-input[type="file"]{
-display:none;
+.confidence{
+    margin-top:15px;
 }
 
-/* custom upload button */
-.custom-file-upload{
-background:#1d2671;
-color:white;
-padding:12px 20px;
-border-radius:6px;
-cursor:pointer;
-display:inline-block;
-margin-top:10px;
-transition:0.3s;
-}
-
-.custom-file-upload:hover{
-background:#c33764;
-}
-
-#file-name{
-margin-top:10px;
-color:#555;
-font-size:14px;
+.bar{
+    background:#eee;
+    padding:6px;
+    margin:5px 0;
+    border-radius:5px;
 }
